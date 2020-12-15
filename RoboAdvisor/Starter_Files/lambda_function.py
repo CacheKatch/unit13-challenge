@@ -49,7 +49,8 @@ def validate_data(age, investment_amount, intent_request):
                 False,
                 "investmentAmount",
                 " The minimum amount to investment for retirement should be greater than 5000,"
-                " please provide a different amount to invest "
+                 " please provide a different amount to invest ",
+                
             )
     
     # True results if age or investmentAmount are valid
@@ -133,7 +134,7 @@ def recommend_portfolio(intent_request):
         if not validation_result["isValid"]:
             slots[validation_result["violatedSlot"]] = None # we are cleaning the wrong data slots
             return elicit_slot(
-                intent_request["sessionAttribute"],
+                intent_request["sessionAttributes"],
                 intent_request["currentIntent"]["name"],
                 slots,
                 validation_result["violatedSlot"],
